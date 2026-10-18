@@ -9,7 +9,7 @@ multilingual Transformer and deployed as a public web application.
 | --- | --- |
 | Live web application | https://hausa-sentiment.streamlit.app |
 | Fine tuned model | https://huggingface.co/hasbyUmutoniwabo/hausa-sentiment-afroxlmr |
-| Demo video | ADD YOUR VIDEO LINK HERE |
+| Demo video | https://www.youtube.com/watch?v=au36-z5TRVc |
 | Report | ADD YOUR PDF LINK OR SEE report.pdf IN THIS REPO |
 
 ## The problem
