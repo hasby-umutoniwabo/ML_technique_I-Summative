@@ -183,16 +183,25 @@ religious vocabulary as a positive signal.
 
 Testing it against the full test set reversed the finding:
 
-| Measure | With religious vocabulary | Without |
+| | With religious vocabulary | Without |
 | --- | --- | --- |
+| Test tweets | 1,719 | 3,584 |
 | Accuracy | 0.857 | 0.741 |
-| True positive share | 0.682 | |
-| Predicted positive share | 0.713 | |
 
-Accuracy is 11.6 points *higher* on those tweets, and the predicted
-distribution tracks the true one within 3 points. Religious vocabulary in this
-corpus genuinely is 68 percent positive, so the model learned a correct prior,
-not a shortcut.
+Accuracy is 11.6 points *higher* on those tweets, not lower. The class
+distribution inside the religious vocabulary group:
+
+| Class | True share | Predicted share | Difference |
+| --- | --- | --- | --- |
+| Positive | 0.682 | 0.713 | +0.031 |
+| Negative | 0.247 | 0.248 | +0.001 |
+| Neutral | 0.071 | 0.040 | -0.031 |
+
+Positive is over-predicted by only 3.1 points and negative is essentially
+exact. The shift comes out of neutral, which is under-predicted by the same
+amount, and that is a general weakness rather than anything to do with
+religious language. Religious vocabulary in this corpus genuinely is 68 percent
+positive, so the model learned a correct prior, not a shortcut.
 
 What survives is narrower. The failures are rare but expensive: the minority of
 cases that contradict the prior, curses phrased as prayers, are predicted
@@ -260,7 +269,7 @@ That is normal, not a fault.
 ├── streamlit_app.py       # the deployed web application
 ├── requirements.txt       # pinned versions
 ├── README.md
-├── notebooks/
+├── notebook/
 │   └── hausa_sentiment.ipynb   # full pipeline with saved outputs
 └── figures/
     ├── label_distribution.png
